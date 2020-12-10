@@ -9,6 +9,9 @@ const emailErr = email.nextElementSibling
 
 const password = document.getElementById('password')
 const passwordErr = password.nextElementSibling
+
+const password2 = document.getElementById('password2')
+const password2Err = password2.nextElementSibling
 // const usernameErr = document.getElementById("usernameErr")
 
 // 2. Add event / modification
@@ -35,6 +38,13 @@ regForm.addEventListener('click', function (e) {
   } else {
     console.log('sending to server')
   }
+
+  if (password2.value === '') {
+    password2Err.className = 'block bg-red-500 text-white'
+  } else {
+    console.log('sending to server')
+  }
+
 
 })
 
