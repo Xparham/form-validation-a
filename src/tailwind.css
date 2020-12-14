@@ -6,7 +6,7 @@
 }
 
 .success {
-    @apply bg-green-400 text-black
+    @apply bg-green-600 text-white p-2 block
 }
 
 .error {
