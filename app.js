@@ -21,9 +21,9 @@ regForm.addEventListener('submit', function (e) {
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
 })
 
-function validateEmpty(input) {
+function validateEmpty(username) {
   console.log(input)
-  if (input.value === '') {
+  if (username.value === '') {
       showError(input)
   } else {
       showSuccess(input)
@@ -31,30 +31,49 @@ function validateEmpty(input) {
 }
 
 
-function validateIsEmail(input){
+function validateIsEmail(email){
   //@TODO: check if input is an email
   console.log(input)
-  
-
-
+  if (email.value === '') {
+      showError(input)
+  } else {
+    showSuccess(input)
+  }
 }
-
-function showError(input){
-  // steps to do this...
-input.nextElementSibling.innerHTML = '<small class="error"> ❌ Please enter your username </small>'
-  
-}
-
-function showSuccess (input) {
-input.nextElementSibling.innerHTML = '<small class="success"> ✔️ Success </small>'
-}
-
-function validatePassMatch(password1, password2){
+function validatePassMatch(password, password2){
   //@TODO: check if the passwords match
+  console.log(input)
+  if (password.value !== password2.value) {
+      showError(input)
+  } else {
+    showSuccess(input)
+  }
 }
-
-
 
 function validateMinLength(input){
   //@TODO: check length
+  if (password.value.length > 3) {
+      showError(input)
+  } else {
+    showSuccess(input)
+  }
 }
+
+
+function showError(input){
+  // steps to do this...
+  console.log('input is empty')
+input.nextElementSibling.innerHTML = '<small class="error"> ❌ Please enter your username </small>'
+  }
+
+function showSuccess (input) {
+  console.log('you are ready to submit')
+input.nextElementSibling.innerHTML = '<small class="success"> ✔️ Success </small>'
+}
+
+
+
+
+
+
+
