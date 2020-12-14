@@ -582,7 +582,7 @@ video {
 
 .base-input {
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgba(209, 213, 219, var(--tw-border-opacity))
 }
 
 .base-input:focus {

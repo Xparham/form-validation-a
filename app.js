@@ -12,7 +12,8 @@ regForm.addEventListener('submit', function (e) {
   validateEmpty(username)
   validateIsEmail(email)
   validatePassMatch(password)
-  validateEmpty(password2)
+  validatePass2(password2)
+ 
 
   //@TODO: add the validation for email (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
@@ -21,7 +22,7 @@ regForm.addEventListener('submit', function (e) {
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
 })
 
-function validateEmpty(username) {
+function validateEmpty(input) {
   console.log(input)
   if (username.value === '') {
       showError(input)
@@ -31,7 +32,7 @@ function validateEmpty(username) {
 }
 
 
-function validateIsEmail(email){
+function validateIsEmail(input){
   //@TODO: check if input is an email
   console.log(input)
   if (email.value === '') {
@@ -40,22 +41,32 @@ function validateIsEmail(email){
     showSuccess(input)
   }
 }
-function validatePassMatch(password, password2){
-  //@TODO: check if the passwords match
+
+function validatePass2(input){
   console.log(input)
-  if (password.value !== password2.value) {
-      showError(input)
+  if (password2.value !== password.value) {
+    showError(input)
   } else {
     showSuccess(input)
   }
 }
 
+function validatePassMatch(input){
+  //@TODO: check if the passwords match
+  console.log(input)
+  if (password.value === password2.value) {
+      showSuccess(input)
+  } else {
+    showError(input)
+  }
+}
+
 function validateMinLength(input){
   //@TODO: check length
-  if (password.value.length > 3) {
+  if (password2.value === '') {
       showError(input)
   } else {
-    showSuccess(input)
+
   }
 }
 
