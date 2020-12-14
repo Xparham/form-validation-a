@@ -22,42 +22,42 @@ regForm.addEventListener('submit', function (e) {
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
 })
 
-function validateEmpty(input) {
-  console.log(input)
+function validateEmpty(username) {
+  console.log(username)
   if (username.value === '') {
-      showError(input)
+      showError(username)
   } else {
-      showSuccess(input)
+      showSuccess(username)
   }
 }
 
 
-function validateIsEmail(input){
+function validateIsEmail(email){
   //@TODO: check if input is an email
-  console.log(input)
+  console.log(email)
   if (email.value === '') {
-      showError(input)
+      showError(email)
   } else {
-    showSuccess(input)
+    showSuccess(email)
   }
 }
 
-function validatePass2(input){
-  console.log(input)
+function validatePass2(password2){
+  console.log(password2)
   if (password2.value !== password.value) {
-    showError(input)
+    showError(password2)
   } else {
-    showSuccess(input)
+    showSuccess(password2)
   }
 }
 
-function validatePassMatch(input){
+function validatePassMatch(password){
   //@TODO: check if the passwords match
-  console.log(input)
+  console.log(password)
   if (password.value === password2.value) {
-      showSuccess(input)
+      showSuccess(password, password2)
   } else {
-    showError(input)
+    showError(password)
   }
 }
 
