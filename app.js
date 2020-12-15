@@ -10,16 +10,18 @@ regForm.addEventListener('submit', function (e) {
   e.preventDefault()
 
   validateEmpty(username)
-  validateIsEmail(email)
-  validatePassMatch(password)
-  validatePass2(password2)
- 
+  validateMinLength(username)
 
-  //@TODO: add the validation for email (Code Challenge 5a)
+
+ //@TODO: add the validation for email (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
-
+  validateIsEmail(email)
+ 
+ 
   //@TODO: add the validation for password (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
+  validatePassMatch(password, password2)
+
 })
 
 function validateEmpty(username) {
@@ -35,37 +37,43 @@ function validateEmpty(username) {
 function validateIsEmail(email){
   //@TODO: check if input is an email
   console.log(email)
-  if (email.value === '') {
-      showError(email)
+  if (emailValidates(email)) {
+      showSuccess(email)
   } else {
-    showSuccess(email)
+    showError(email)
   }
 }
 
-function validatePass2(password2){
-  console.log(password2)
-  if (password2.value !== password.value) {
-    showError(password2)
-  } else {
-    showSuccess(password2)
-  }
+function emailValidates (email) {
+  return false
 }
 
-function validatePassMatch(password){
+
+
+function validatePassMatch(password, password2){
   //@TODO: check if the passwords match
   console.log(password)
   if (password.value === password2.value) {
-      showSuccess(password, password2)
-  } else {
+      showSuccess(password)
+  } 
+  else {
     showError(password)
+  }
+
+  if (password2.value !== password.value) {
+    showError(password2)
+  }
+  else {
+    showSuccess(password2)
   }
 }
 
 function validateMinLength(input){
   //@TODO: check length
-  if (password2.value === '') {
+  if (input.value.length < 4) {
       showError(input)
   } else {
+    showSuccess(input)
 
   }
 }
@@ -73,7 +81,8 @@ function validateMinLength(input){
 
 function showError(input){
   // steps to do this...
-  console.log('input is empty')
+  console.log(input)
+  console.log(input.nextElementSibling)
 input.nextElementSibling.innerHTML = '<small class="error"> ❌ Please enter your username </small>'
   }
 
