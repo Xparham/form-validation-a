@@ -33,7 +33,7 @@ form.addEventListener('submit', function (e) {
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
   validatePassMatch(password)
   validatePass2Match(password2)
-  validateMinLength(password, password2)
+
 })
 
 // input: HTMLInputElement
@@ -46,22 +46,12 @@ function validateEmpty (input) {
   }
 }
 
-// input: HTMLInputElement (DOM) | msg: string
-function showError (input, msg) {
-  input.nextElementSibling.innerHTML = `<small class="error">${msg}</small>`
-
-  //reverts the success border
-  input.className='base-input'
-}
-
-function showSuccess (input) {
-  input.className = 'success-input'
-  // removes the flash message
-  input.nextElementSibling.innerHTML = ''
-}
-
 function validatePassMatch (password1, password2) {
-  // password1.value === password2.value
+  if (password1.value === password2.value) {
+    showSuccess(input)
+  } else {
+    showError(input, 'passwords do not match')
+  }
   //@TODO: check if the passwords match
 }
 
@@ -90,3 +80,25 @@ function validateMinLength (input) {
     showSuccess(input)
   }
 }
+
+// input: HTMLInputElement (DOM) | msg: string
+function showError (input, msg) {
+  input.nextElementSibling.innerHTML = `<small class="error">${msg}</small>`
+
+  //reverts the success border
+  input.className='base-input'
+}
+
+function showSuccess (input) {
+  input.className = 'success-input'
+  // removes the flash message
+  input.nextElementSibling.innerHTML = ''
+}
+
+
+
+
+
+
+
+
