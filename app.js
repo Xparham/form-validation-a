@@ -21,7 +21,7 @@ regForm.addEventListener('submit', function (e) {
   //@TODO: add the validation for password (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
   validatePassMatch(password, password2)
-
+  validateMinLength(password, password2)
 })
 
 function validateEmpty(username) {
@@ -45,9 +45,11 @@ function validateIsEmail(email){
 }
 
 function emailValidates (email) {
-  return false
+  return /\S+@\S+\.\S+/.test(email)
 }
-
+emailIsValid('tyler@tyler@ui.dev') // false
+emailIsValid('tyler@ui.dev') // true
+}
 
 
 function validatePassMatch(password, password2){
@@ -77,6 +79,7 @@ function validateMinLength(input){
 
   }
 }
+
 
 
 function showError(input){
