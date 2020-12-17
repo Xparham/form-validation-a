@@ -20,53 +20,33 @@ regForm.addEventListener('submit', function (e) {
  
   //@TODO: add the validation for password (Code Challenge 5a)
   //@TODO: Code Challenge 5b: Refactor your CC 5a to use function with the "blueprints" below
-  validatePassMatch(password, password2)
+  validatePassMatch(password)
+  validatePass2Match(password2)
   validateMinLength(password, password2)
 })
 
-function validateEmpty(username) {
-  console.log(username)
-  if (username.value === '') {
-      showError(username)
-  } else {
-      showSuccess(username)
-  }
-}
 
 
-function validateIsEmail(email){
-  //@TODO: check if input is an email
-  console.log(email)
-  if (emailValidates(email)) {
-      showSuccess(email)
-  } else {
-    showError(email)
-  }
-}
 
-function emailValidates (email) {
-  return /\S+@\S+\.\S+/.test(email)
-}
-emailIsValid('tyler@tyler@ui.dev') // false
-emailIsValid('tyler@ui.dev') // true
-}
+
+
 
 
 function validatePassMatch(password, password2){
   //@TODO: check if the passwords match
-  console.log(password)
+  // console.log(password)
   if (password.value === password2.value) {
-      showSuccess(password)
+      showSuccess(password, '✔️ Passwords match' )
   } 
   else {
-    showError(password)
+    showError(password, '❌ Passwords do not match' )
   }
 
   if (password2.value !== password.value) {
-    showError(password2)
+    showError(password2, '❌ Passwords do not match')
   }
   else {
-    showSuccess(password2)
+    showSuccess(password2, '✔️ Passwords match')
   }
 }
 
@@ -82,16 +62,16 @@ function validateMinLength(input){
 
 
 
-function showError(input){
+function showError(input, msg){
   // steps to do this...
   console.log(input)
   console.log(input.nextElementSibling)
-input.nextElementSibling.innerHTML = '<small class="error"> ❌ Please enter your username </small>'
+input.nextElementSibling.innerHTML = `<small class="error">${msg}</small>`
   }
 
-function showSuccess (input) {
+function showSuccess (input, msg){
   console.log('you are ready to submit')
-input.nextElementSibling.innerHTML = '<small class="success"> ✔️ Success </small>'
+input.nextElementSibling.innerHTML = `<small class="success">${msg}</small>`
 }
 
 
